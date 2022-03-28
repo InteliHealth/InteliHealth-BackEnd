@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {}
+    "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {}
   },
   "projects": {
-    "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {
+    "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+        "projectUniqueName": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
         "projectName": "InteliHealth",
-        "projectPath": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
-        "packagesPath": "C:\\Users\\42175477819\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\obj\\",
+        "projectPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+        "packagesPath": "C:\\Users\\48038990889.INFOSCS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\42175477819\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\48038990889.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Google.Apis.Auth": {
+              "target": "Package",
+              "version": "[1.57.0, )"
+            },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[5.0.14, )"
@@ -48,13 +52,31 @@
               "target": "Package",
               "version": "[5.0.14, )"
             },
-            "MySql.EntityFrameworkCore": {
+            "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.3, )"
+              "version": "[5.0.14, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer.Design": {
+              "target": "Package",
+              "version": "[1.1.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.14, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
+              "version": "[6.3.0, )"
+            },
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.3, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[6.12.2, )"
             }
           },
           "imports": [
@@ -75,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
