@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {}
+    "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {}
   },
   "projects": {
-    "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {
+    "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+        "projectUniqueName": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
         "projectName": "InteliHealth",
-        "projectPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
-        "packagesPath": "C:\\Users\\48038990889.INFOSCS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\obj\\",
+        "projectPath": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+        "packagesPath": "C:\\Users\\42175477819\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\42175477819\\Desktop\\Back-InteliHealth\\API\\InteliHealth\\InteliHealth\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\48038990889.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\42175477819\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -75,7 +75,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
