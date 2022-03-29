@@ -10,6 +10,7 @@ namespace InteliHealth.Interfaces
         void Excluir(int id);
         List<Topico> Listar();
         List<Topico> ListarMeus(int id);
+        Topico BuscarPorId(int id);
 
     }
 }

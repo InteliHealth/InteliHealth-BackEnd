@@ -70,3 +70,7 @@ C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\obj\Debug\net5.0\InteliHealth.pdb
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\obj\Debug\net5.0\InteliHealth.genruntimeconfig.cache
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\obj\Debug\net5.0\ref\InteliHealth.dll
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\Google.Apis.dll
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\Google.Apis.Auth.PlatformServices.dll
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\Google.Apis.Auth.dll
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\Google.Apis.Core.dll

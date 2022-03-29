@@ -10,5 +10,6 @@ namespace InteliHealth.Interfaces
         void Excluir(int id);
         List<Lembrete> Listar();
         List<Lembrete> ListarMeus(int id);
+        Lembrete BuscarPorId(int id);
     }
 }

@@ -2,6 +2,7 @@
 using InteliHealth.Domains;
 using InteliHealth.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InteliHealth.Repositories
 {
@@ -14,12 +15,23 @@ namespace InteliHealth.Repositories
         }
         public void Atualizar(int id, Usuario usuarioAtualizado)
         {
-            throw new System.NotImplementedException();
+            Usuario usuarioBuscado = BuscarPorId(id);
+
+            usuarioBuscado.Nome = usuarioAtualizado.Nome;
+            usuarioBuscado.Sobrenome = usuarioAtualizado.Sobrenome;
+            usuarioBuscado.DataNascimento = usuarioAtualizado.DataNascimento;
+            usuarioBuscado.Altura = usuarioAtualizado.Altura;
+            usuarioBuscado.Peso = usuarioAtualizado.Peso;
+            usuarioBuscado.TipoSanguineo = usuarioAtualizado.TipoSanguineo;
+            usuarioBuscado.Foto = usuarioAtualizado.Foto;
+
+            ctx.Usuario.Update(usuarioBuscado);
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorId(int id)
         {
-            throw new System.NotImplementedException();
+            return ctx.Usuario.FirstOrDefault(u => u.IdUsuario == id);
         }
 
         public void Cadastrar(Usuario novoUsuario)
@@ -30,12 +42,14 @@ namespace InteliHealth.Repositories
 
         public void Deletar(int id)
         {
-            throw new System.NotImplementedException();
+            ctx.Usuario.Remove(BuscarPorId(id));
+
+            ctx.SaveChanges();
         }
 
         public List<Usuario> Listar()
         {
-            throw new System.NotImplementedException();
+            return ctx.Usuario.ToList();
         }
     }
 }

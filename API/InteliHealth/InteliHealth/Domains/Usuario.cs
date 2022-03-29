@@ -8,6 +8,7 @@ namespace InteliHealth.Domains
     {
         [Key]
         public int IdUsuario { get; set; }
+        public int IdFirebase { get; set; }
         public string Email { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
