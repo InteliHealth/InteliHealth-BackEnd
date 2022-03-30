@@ -1,6 +1,7 @@
 ﻿using InteliHealth.Data;
 using InteliHealth.Domains;
 using InteliHealth.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -31,6 +32,7 @@ namespace InteliHealth.Repositories
 
         public void Cadastrar(Lembrete novoLembrete)
         {
+            novoLembrete.DataCriacao = DateTime.Now;
             ctx.Lembrete.Add(novoLembrete);
             ctx.SaveChanges();
         }
@@ -48,12 +50,12 @@ namespace InteliHealth.Repositories
 
         public List<Lembrete> ListarMeus(int id)
         {
-            Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.IdUsuario == id);
-            if (usuarioBuscado != null)
+            Topico topicoBuscado = ctx.Topico.FirstOrDefault(t => t.IdTopico == id);
+            if (topicoBuscado != null)
             {
-                int idUsuario = usuarioBuscado.IdUsuario;
+                int idTopico = topicoBuscado.IdTopico;
 
-                return ctx.Lembrete.Where(u => u.Topico.Usuario.IdUsuario == idUsuario)
+                return ctx.Lembrete.Where(t => t.IdTopico == idTopico)
                     .Select(l => new Lembrete()
                     {
                         Titulo = l.Titulo,

@@ -1,6 +1,7 @@
 ﻿using InteliHealth.Data;
 using InteliHealth.Domains;
 using InteliHealth.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,6 +31,7 @@ namespace InteliHealth.Repositories
 
         public void Cadastrar(Topico novoTopico)
         {
+            novoTopico.DataCriacao = DateTime.Now;
             ctx.Topico.Add(novoTopico);
             ctx.SaveChanges();
         }
@@ -53,7 +55,7 @@ namespace InteliHealth.Repositories
             {
                 int idUsuario = usuarioBuscado.IdUsuario;
 
-                return ctx.Topico.Where(u => u.Usuario.IdUsuario == idUsuario)
+                return ctx.Topico.Where(u => u.IdUsuario == idUsuario)
                     .Select(t => new Topico()
                     {
                         Nome = t.Nome,

@@ -59,7 +59,8 @@ namespace InteliHealth.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     IdTopico = table.Column<int>(type: "int", nullable: false),
                     Titulo = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Horario = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Horario = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {

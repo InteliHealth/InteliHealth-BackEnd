@@ -17,5 +17,6 @@ namespace InteliHealth.Domains
         public Topico Topico { get; set; }
         public string Titulo { get; set; }
         public DateTime Horario { get; set; }
+        public DateTime DataCriacao { get; set; }
     }
 }
