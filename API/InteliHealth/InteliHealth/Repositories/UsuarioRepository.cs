@@ -34,7 +34,7 @@ namespace InteliHealth.Repositories
         public Usuario Atualizar(Usuario usuarioAtualizado)
         {
             ctx.Entry(usuarioAtualizado).State = EntityState.Modified;
-            ctx.SaveChanges();
+            ctx.SaveChangesAsync();
 
             return usuarioAtualizado;
         }

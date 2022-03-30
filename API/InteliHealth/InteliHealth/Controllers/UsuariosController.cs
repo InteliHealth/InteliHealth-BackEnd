@@ -47,7 +47,9 @@ namespace InteliHealth.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (id != usuario.IdUsuario)
+            Usuario usuarioBuscado = _context.Usuario.FirstOrDefault(u => u.IdUsuario == id);
+
+            if (usuarioBuscado == null)
             {
                 return BadRequest();
             }
