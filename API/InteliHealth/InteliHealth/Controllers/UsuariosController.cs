@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InteliHealth.Domains;
+using InteliHealth.Interfaces;
+using InteliHealth.Repositories;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using InteliHealth.Data;
-using InteliHealth.Domains;
+using System.Collections.Generic;
+using System;
 
 namespace InteliHealth.Controllers
 {
@@ -14,97 +12,146 @@ namespace InteliHealth.Controllers
     [ApiController]
     public class UsuariosController : ControllerBase
     {
-        private readonly Context _context;
-
-        public UsuariosController(Context context)
+        private readonly IUsuarioRepository _usuarioRepository;
+        public UsuariosController(IUsuarioRepository usuarioRepository)
         {
-            _context = context;
+            _usuarioRepository = usuarioRepository;
         }
 
         // GET: api/Usuarios
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuario()
+        public IActionResult Listar()
         {
-            return await _context.Usuario.ToListAsync();
+            List<Usuario> listaUsuarios = _usuarioRepository.Listar();
+
+            try
+            {
+                if (listaUsuarios == null)
+                {
+                    return BadRequest(new
+                    {
+                        Mensagem = "Nenhum usuário encontrado"
+                    });
+                }
+
+                return Ok(listaUsuarios);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        public IActionResult BuscarUsuario(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
+            Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(id);
 
-            if (usuario == null)
+            try
             {
-                return NotFound();
-            }
+                if (usuarioBuscado == null)
+                {
+                    return StatusCode(204);
+                }
 
-            return usuario;
+                return Ok(usuarioBuscado);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         // PUT: api/Usuarios/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public IActionResult AtualizarUsuario(int id, Usuario usuario)
         {
-            Usuario usuarioBuscado = _context.Usuario.FirstOrDefault(u => u.IdUsuario == id);
-
-            if (usuarioBuscado == null)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(usuario).State = EntityState.Modified;
 
             try
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsuarioExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+                Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(id);
 
-            return NoContent();
+                if (usuario.Nome == null)
+                {
+                    usuario.Nome = usuarioBuscado.Nome;
+                }
+                if (usuario.Sobrenome == null)
+                {
+                    usuario.Sobrenome = usuarioBuscado.Sobrenome;
+                }
+                if (usuario.DataNascimento >= DateTime.Now)
+                {
+                    usuario.DataNascimento = usuarioBuscado.DataNascimento;
+                }
+                if (usuario.Altura == null)
+                {
+                    usuario.Altura = usuarioBuscado.Altura;
+                }
+                if (usuario.Peso == null)
+                {
+                    usuario.Peso = usuarioBuscado.Peso;
+                }
+                if (usuario.TipoSanguineo == null)
+                {
+                    usuario.TipoSanguineo = usuarioBuscado.TipoSanguineo;
+                }
+                if (usuario.Foto == null)
+                {
+                    usuario.Foto = usuarioBuscado.Foto;
+                }
+
+                _usuarioRepository.Atualizar(id, usuario);
+
+                return StatusCode(204);
+            }
+            catch (Exception)
+            {
+                return NoContent();
+
+                throw;
+            }
         }
 
         // POST: api/Usuarios
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public IActionResult CadastrarUsuario(Usuario usuario)
         {
-            _context.Usuario.Add(usuario);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _usuarioRepository.Cadastrar(usuario);
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.IdUsuario }, usuario);
+                return StatusCode(201, new
+                {
+                    Mensagem = "Usuário criado"
+                });
+            }
+            catch (Exception)
+            {
+                return BadRequest();
+
+                throw;
+            }
         }
 
         // DELETE: api/Usuarios/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(int id)
+        public IActionResult DeletarUsuario(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            try
             {
-                return NotFound();
+                _usuarioRepository.Deletar(id);
+
+                return StatusCode(204);
             }
-
-            _context.Usuario.Remove(usuario);
-            await _context.SaveChangesAsync();
-
-            return NoContent();
-        }
-
-        private bool UsuarioExists(int id)
-        {
-            return _context.Usuario.Any(e => e.IdUsuario == id);
+            catch (Exception)
+            {
+                return BadRequest();
+                throw;
+            }
         }
     }
 }

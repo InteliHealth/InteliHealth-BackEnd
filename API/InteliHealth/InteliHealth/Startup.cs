@@ -1,4 +1,6 @@
 using InteliHealth.Data;
+using InteliHealth.Interfaces;
+using InteliHealth.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -29,7 +31,8 @@ namespace InteliHealth
         {
             services.AddDbContext<Context>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
 
-            services.AddControllers()
+            services
+                .AddControllers()
                 .AddNewtonsoftJson(options =>
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
@@ -56,6 +59,12 @@ namespace InteliHealth
                     Title = "senai.intelihealth.api"
                 });
             });
+
+            services.AddTransient<DbContext, Context>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+            services.AddTransient<ITopicoRepository, TopicoRepository>();
+            services.AddTransient<ILembreteRepository, LembreteRepository>();
+            services.AddTransient<IRespostaRepository, RespostaRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

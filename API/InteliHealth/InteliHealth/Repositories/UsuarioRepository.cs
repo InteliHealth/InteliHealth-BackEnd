@@ -15,28 +15,20 @@ namespace InteliHealth.Repositories
         {
             ctx = appContext;
         }
-        //public void Atualizar(int id, Usuario usuarioAtualizado)
-        //{
-        //    Usuario usuarioBuscado = BuscarPorId(id);
-
-        //    usuarioBuscado.Nome = usuarioAtualizado.Nome;
-        //    usuarioBuscado.Sobrenome = usuarioAtualizado.Sobrenome;
-        //    usuarioBuscado.DataNascimento = usuarioAtualizado.DataNascimento;
-        //    usuarioBuscado.Altura = usuarioAtualizado.Altura;
-        //    usuarioBuscado.Peso = usuarioAtualizado.Peso;
-        //    usuarioBuscado.TipoSanguineo = usuarioAtualizado.TipoSanguineo;
-        //    usuarioBuscado.Foto = usuarioAtualizado.Foto;
-
-        //    ctx.Usuario.Update(usuarioBuscado);
-        //    ctx.SaveChanges();
-        //}
-
-        public Usuario Atualizar(Usuario usuarioAtualizado)
+        public void Atualizar(int id, Usuario usuarioAtualizado)
         {
-            ctx.Entry(usuarioAtualizado).State = EntityState.Modified;
-            ctx.SaveChangesAsync();
+            Usuario usuarioBuscado = BuscarPorId(id);
 
-            return usuarioAtualizado;
+            usuarioBuscado.Nome = usuarioAtualizado.Nome;
+            usuarioBuscado.Sobrenome = usuarioAtualizado.Sobrenome;
+            usuarioBuscado.DataNascimento = usuarioAtualizado.DataNascimento;
+            usuarioBuscado.Altura = usuarioAtualizado.Altura;
+            usuarioBuscado.Peso = usuarioAtualizado.Peso;
+            usuarioBuscado.TipoSanguineo = usuarioAtualizado.TipoSanguineo;
+            usuarioBuscado.Foto = usuarioAtualizado.Foto;
+
+            ctx.Usuario.Update(usuarioBuscado);
+            ctx.SaveChanges();
         }
 
         public Usuario BuscarPorId(int id)
@@ -44,25 +36,17 @@ namespace InteliHealth.Repositories
             return ctx.Usuario.FirstOrDefault(u => u.IdUsuario == id);
         }
 
-        public Usuario Cadastrar(Usuario novoUsuario)
+        public void Cadastrar(Usuario novoUsuario)
         {
             novoUsuario.DataCriacao = DateTime.Now;
             ctx.Usuario.Add(novoUsuario);
             ctx.SaveChanges();
-
-            return novoUsuario;
         }
 
-        //public void Deletar(int id)
-        //{
-        //    ctx.Usuario.Remove(BuscarPorId(id));
-
-        //    ctx.SaveChanges();
-        //}
-
-        public void Deletar(Usuario usuarioDeletado)
+        public void Deletar(int id)
         {
-            ctx.Usuario.Remove(usuarioDeletado);
+            ctx.Usuario.Remove(BuscarPorId(id));
+
             ctx.SaveChanges();
         }
 

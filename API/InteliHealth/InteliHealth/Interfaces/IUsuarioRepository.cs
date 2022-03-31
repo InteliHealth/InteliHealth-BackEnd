@@ -5,9 +5,9 @@ namespace InteliHealth.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Usuario Cadastrar(Usuario novoUsuario);
-        Usuario Atualizar(Usuario usuarioAtualizado);
-        void Deletar(Usuario usuarioDeletado);
+        void Cadastrar(Usuario novoUsuario);
+        void Atualizar(int id, Usuario usuarioAtualizado);
+        void Deletar(int id);
         Usuario BuscarPorId(int id);
         List<Usuario> Listar();
     }
