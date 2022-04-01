@@ -40,7 +40,7 @@ namespace InteliHealth.Controllers
             }
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("Buscar/{id}")]
         public IActionResult BuscarTopicos(int id)
         {
             Topico topicoBuscado = _topicoRepository.BuscarPorId(id);
@@ -123,7 +123,7 @@ namespace InteliHealth.Controllers
             }
         }
 
-        [HttpGet("id")]
+        [HttpGet("Meus/{id}")]
         public IActionResult ListarMeus(int id)
         {
             List<Topico> listaTopicos = _topicoRepository.ListarMeus(id);

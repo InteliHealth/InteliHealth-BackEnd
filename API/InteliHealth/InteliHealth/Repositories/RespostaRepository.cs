@@ -14,6 +14,10 @@ namespace InteliHealth.Repositories
         {
             ctx = appContext;
         }
+        public List<Resposta> Listar()
+        {
+            return ctx.Resposta.ToList();
+        }
         public Resposta BuscarPorId(int id)
         {
             return ctx.Resposta.FirstOrDefault(r => r.IdResposta == id);

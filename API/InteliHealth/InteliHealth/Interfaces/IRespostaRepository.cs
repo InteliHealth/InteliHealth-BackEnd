@@ -8,5 +8,6 @@ namespace InteliHealth.Interfaces
         void Cadastrar(Resposta novaResposta);
         List<Resposta> ListarMeus(int id);
         Resposta BuscarPorId(int id);
+        List<Resposta> Listar();
     }
 }

@@ -43,7 +43,7 @@ namespace InteliHealth.Controllers
         }
 
         // GET: api/Usuarios/5
-        [HttpGet("{id}")]
+        [HttpGet("Buscar/{id}")]
         public IActionResult BuscarUsuario(int id)
         {
             Usuario usuarioBuscado = _usuarioRepository.BuscarPorId(id);
