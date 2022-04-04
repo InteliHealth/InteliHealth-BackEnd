@@ -148,3 +148,4 @@ C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\runtimes\win-arm\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth\API\InteliHealth\InteliHealth\bin\Debug\net5.0\StaticFiles\Images\fe805382-2b32-41e2-b78a-c90b27dcc236png

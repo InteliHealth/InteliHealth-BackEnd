@@ -21,7 +21,7 @@ namespace InteliHealth.Utils
                     if (CheckExtension(acceptedExtensions, fileName))
                     {
                         var extension = GetExtension(fileName);
-                        var newName = $"{Guid.NewGuid()}{extension}";
+                        var newName = $"{Guid.NewGuid()}.{extension}";
                         var fullPath = Path.Combine(path, newName);
 
                         using (var stream = new FileStream(fullPath, FileMode.Create))
