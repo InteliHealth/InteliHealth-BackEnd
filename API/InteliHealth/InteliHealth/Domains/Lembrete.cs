@@ -14,9 +14,9 @@ namespace InteliHealth.Domains
 
         [ForeignKey("Topico")]
         public int IdTopico { get; set; }
-
+        public Topico Topico { get; set; }
         public string Titulo { get; set; }
-
         public DateTime Horario { get; set; }
+        public DateTime DataCriacao { get; set; }
     }
 }

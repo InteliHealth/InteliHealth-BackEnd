@@ -9,13 +9,11 @@ namespace InteliHealth.Domains
     {
         [Key]
         public int IdTopico { get; set; }
-
-        [ForeignKey("Usuario")]
-        public int IdUsuario { get; set; }
-        public Usuario Usuarios { get; set; }
+        public string IdUsuario { get; set; }
         public string Nome { get; set; }
         public string Icone { get; set; }
         public DateTime DataCriacao { get; set; }
-        public ICollection<Topico> Topicos { get; set; }
+        public ICollection<Lembrete> Lembretes { get; set; }
+        public ICollection<Resposta> Respostas { get; set; }
     }
 }
