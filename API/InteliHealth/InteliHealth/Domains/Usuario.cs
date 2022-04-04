@@ -8,6 +8,7 @@ namespace InteliHealth.Domains
     {
         [Key]
         public int IdUsuario { get; set; }
+        public int IdFirebase { get; set; }
         public string Email { get; set; }
         public string Nome { get; set; }
         public string Sobrenome { get; set; }
@@ -17,6 +18,6 @@ namespace InteliHealth.Domains
         public string TipoSanguineo { get; set; }
         public string Foto { get; set; }
         public DateTime DataCriacao { get; set; }
-        public ICollection<Usuario> Usuarios { get; set; }
+        public ICollection<Topico> Topicos { get; set; }
     }
 }
