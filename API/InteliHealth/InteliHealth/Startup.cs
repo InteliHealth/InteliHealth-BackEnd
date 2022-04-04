@@ -3,17 +3,14 @@ using InteliHealth.Interfaces;
 using InteliHealth.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.FileProviders;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace InteliHealth
 {
@@ -61,7 +58,6 @@ namespace InteliHealth
             });
 
             services.AddTransient<DbContext, Context>();
-            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ITopicoRepository, TopicoRepository>();
             services.AddTransient<ILembreteRepository, LembreteRepository>();
             services.AddTransient<IRespostaRepository, RespostaRepository>();
@@ -78,6 +74,15 @@ namespace InteliHealth
             app.UseRouting();
 
             app.UseSwagger();
+
+            app.UseCors("CorsPolicy");
+
+            app.UseStaticFiles(new StaticFileOptions
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
+                RequestPath = "/StaticFiles"
+            });  
 
             app.UseSwaggerUI(c =>
             {

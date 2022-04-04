@@ -13,7 +13,6 @@ namespace InteliHealth.Data
         {
 
         }
-        public DbSet<Usuario> Usuario { get; set; }
         public DbSet<Topico> Topico { get; set; }
         public DbSet<Resposta> Resposta { get; set; }
         public DbSet<Lembrete> Lembrete { get; set; }

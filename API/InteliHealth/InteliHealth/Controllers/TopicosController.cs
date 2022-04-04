@@ -1,5 +1,6 @@
 ﻿using InteliHealth.Domains;
 using InteliHealth.Interfaces;
+using InteliHealth.Utils;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -89,10 +90,25 @@ namespace InteliHealth.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarTopico(Topico topico)
+        public IActionResult CadastrarTopico([FromForm] Topico topico, IFormFile file)
         {
+            
             try
             {
+                string[] acceptedExtensions = { "png", "jpg", "jpeg", "svg", "gif" };
+                string uploadResult = Upload.UploadFile(file, acceptedExtensions);
+
+                if (uploadResult == "")
+                {
+                    return BadRequest("Arquivo não encontrado");
+                }
+                if (uploadResult == "Extensão não permitida")
+                {
+                    return BadRequest("Extensão de arquivo não permitida");
+                }
+
+                topico.Icone = uploadResult;
+
                 _topicoRepository.Cadastrar(topico);
 
                 return StatusCode(201, new 
@@ -124,7 +140,7 @@ namespace InteliHealth.Controllers
         }
 
         [HttpGet("Meus/{id}")]
-        public IActionResult ListarMeus(int id)
+        public IActionResult ListarMeus(string id)
         {
             List<Topico> listaTopicos = _topicoRepository.ListarMeus(id);
 

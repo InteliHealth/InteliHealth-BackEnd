@@ -48,22 +48,14 @@ namespace InteliHealth.Repositories
             return ctx.Topico.ToList();
         }
 
-        public List<Topico> ListarMeus(int id)
+        public List<Topico> ListarMeus(string id)
         {
-            Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.IdUsuario == id);
-            if (usuarioBuscado != null)
-            {
-                int idUsuario = usuarioBuscado.IdUsuario;
-
-                return ctx.Topico.Where(u => u.IdUsuario == idUsuario)
+            return ctx.Topico.Where(t => t.IdUsuario == id)
                     .Select(t => new Topico()
                     {
                         Nome = t.Nome,
                         Icone = t.Icone
                     }).ToList();
-            }
-
-            return null;
         }
     }
 }
