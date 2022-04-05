@@ -54,4 +54,4 @@ jobs:
           app-name: 'ApiInteliHealth'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6D6763264E6546A495B222144DEDDC74 }}
-          package: 'build'
+          package: .
