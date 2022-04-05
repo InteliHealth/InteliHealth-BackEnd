@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "s6T/boYAEAHrzYNqMWQ9pv8B0B7OB3gkaysMufG/+/hF7lbaCrRrmnQu2waCcV0QT47OKX2d13zHYcmifk1yWQ==",
+  "dgSpecHash": "WHWAc4pG9RudANltLoHHj4WcXhZsUJx1rfMIsoSQHySaZlStvmxbtyZOzMzaVhhEtYb+fLmpDnPPmY1uxQPg4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+  "projectFilePath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth-BackEnd\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\48038990889.INFOSCS\\.nuget\\packages\\google.apis\\1.57.0\\google.apis.1.57.0.nupkg.sha512",
     "C:\\Users\\48038990889.INFOSCS\\.nuget\\packages\\google.apis.auth\\1.57.0\\google.apis.auth.1.57.0.nupkg.sha512",

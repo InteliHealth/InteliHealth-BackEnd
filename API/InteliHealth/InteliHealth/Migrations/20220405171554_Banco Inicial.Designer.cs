@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InteliHealth.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220404174240_Banco Inicial")]
+    [Migration("20220405171554_Banco Inicial")]
     partial class BancoInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
