@@ -9413,11 +9413,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+      "projectUniqueName": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth-BackEnd\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
       "projectName": "InteliHealth",
-      "projectPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
+      "projectPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth-BackEnd\\API\\InteliHealth\\InteliHealth\\InteliHealth.csproj",
       "packagesPath": "C:\\Users\\48038990889.INFOSCS\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth\\API\\InteliHealth\\InteliHealth\\obj\\",
+      "outputPath": "C:\\Users\\48038990889.INFOSCS\\Desktop\\InteliHealth-BackEnd\\API\\InteliHealth\\InteliHealth\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\48038990889.INFOSCS\\AppData\\Roaming\\NuGet\\NuGet.Config",
