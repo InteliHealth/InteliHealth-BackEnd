@@ -80,8 +80,8 @@ namespace InteliHealth
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles")),
-                RequestPath = "/StaticFiles"
+                    Path.Combine(Directory.GetCurrentDirectory(), "StaticFiles/Images")),
+                RequestPath = "/img"
             });  
 
             app.UseSwaggerUI(c =>

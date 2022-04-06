@@ -24,4 +24,13 @@
     <Folder Include="StaticFiles\Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="StaticFiles\Images\591510ee-879d-4400-bfd8-2e0be05e95fb.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="StaticFiles\Images\b8a9104d-73d9-4066-affa-6bcab3a52d02.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
