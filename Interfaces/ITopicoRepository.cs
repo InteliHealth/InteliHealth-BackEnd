@@ -9,7 +9,7 @@ namespace InteliHealth.Interfaces
         void Atualizar(int id,Topico topicoAtualizado);
         void Excluir(int id);
         List<Topico> Listar();
-        List<Topico> ListarMeus(string id);
+        List<Topico> ListarMeus(int id);
         Topico BuscarPorId(int id);
 
     }

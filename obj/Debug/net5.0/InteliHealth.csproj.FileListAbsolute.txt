@@ -449,3 +449,5 @@ C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\obj\Debug\net5.0\refin
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\obj\Debug\net5.0\InteliHealth.pdb
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\obj\Debug\net5.0\InteliHealth.genruntimeconfig.cache
 C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\obj\Debug\net5.0\ref\InteliHealth.dll
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\bin\Debug\net5.0\StaticFiles\Images\591510ee-879d-4400-bfd8-2e0be05e95fb.png
+C:\Users\48038990889.INFOSCS\Desktop\InteliHealth-BackEnd\bin\Debug\net5.0\StaticFiles\Images\b8a9104d-73d9-4066-affa-6bcab3a52d02.png

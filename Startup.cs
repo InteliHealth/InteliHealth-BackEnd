@@ -58,6 +58,7 @@ namespace InteliHealth
             });
 
             services.AddTransient<DbContext, Context>();
+            services.AddTransient<IUsuarioRepository, UsuarioRepository>();
             services.AddTransient<ITopicoRepository, TopicoRepository>();
             services.AddTransient<ILembreteRepository, LembreteRepository>();
             services.AddTransient<IRespostaRepository, RespostaRepository>();

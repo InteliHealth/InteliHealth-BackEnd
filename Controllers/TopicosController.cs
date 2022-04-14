@@ -140,7 +140,7 @@ namespace InteliHealth.Controllers
         }
 
         [HttpGet("Meus/{id}")]
-        public IActionResult ListarMeus(string id)
+        public IActionResult ListarMeus(int id)
         {
             List<Topico> listaTopicos = _topicoRepository.ListarMeus(id);
 

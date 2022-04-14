@@ -19,7 +19,7 @@ namespace InteliHealth.Repositories
             Topico topicoBuscado = BuscarPorId(id);
 
             topicoBuscado.Nome = topicoAtualizado.Nome;
-            
+
             ctx.Topico.Update(topicoBuscado);
             ctx.SaveChanges();
         }
@@ -48,14 +48,22 @@ namespace InteliHealth.Repositories
             return ctx.Topico.ToList();
         }
 
-        public List<Topico> ListarMeus(string id)
+        public List<Topico> ListarMeus(int id)
         {
-            return ctx.Topico.Where(t => t.IdUsuario == id)
+            Usuario usuarioBuscado = ctx.Usuario.FirstOrDefault(u => u.IdUsuario == id);
+            if (usuarioBuscado != null)
+            {
+                int idUsuario = usuarioBuscado.IdUsuario;
+
+                return ctx.Topico.Where(u => u.IdUsuario == idUsuario)
                     .Select(t => new Topico()
                     {
                         Nome = t.Nome,
                         Icone = t.Icone
                     }).ToList();
+            }
+
+            return null;
         }
     }
 }

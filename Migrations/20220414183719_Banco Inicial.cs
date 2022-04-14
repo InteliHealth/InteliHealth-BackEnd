@@ -8,12 +8,34 @@ namespace InteliHealth.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Usuario",
+                columns: table => new
+                {
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdGoogle = table.Column<int>(type: "int", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Sobrenome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataNascimento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Altura = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Peso = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TipoSanguineo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Foto = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.IdUsuario);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Topico",
                 columns: table => new
                 {
                     IdTopico = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    IdUsuario = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Icone = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     DataCriacao = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -21,6 +43,12 @@ namespace InteliHealth.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Topico", x => x.IdTopico);
+                    table.ForeignKey(
+                        name: "FK_Topico_Usuario_IdUsuario",
+                        column: x => x.IdUsuario,
+                        principalTable: "Usuario",
+                        principalColumn: "IdUsuario",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -75,6 +103,11 @@ namespace InteliHealth.Migrations
                 name: "IX_Resposta_IdTopico",
                 table: "Resposta",
                 column: "IdTopico");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Topico_IdUsuario",
+                table: "Topico",
+                column: "IdUsuario");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -87,6 +120,9 @@ namespace InteliHealth.Migrations
 
             migrationBuilder.DropTable(
                 name: "Topico");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
         }
     }
 }

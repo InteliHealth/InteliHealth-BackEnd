@@ -81,15 +81,59 @@ namespace InteliHealth.Migrations
                     b.Property<string>("Icone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("IdUsuario")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("IdTopico");
 
+                    b.HasIndex("IdUsuario");
+
                     b.ToTable("Topico");
+                });
+
+            modelBuilder.Entity("InteliHealth.Domains.Usuario", b =>
+                {
+                    b.Property<int>("IdUsuario")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Altura")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DataCriacao")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DataNascimento")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Foto")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdGoogle")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Peso")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sobrenome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoSanguineo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("IdUsuario");
+
+                    b.ToTable("Usuario");
                 });
 
             modelBuilder.Entity("InteliHealth.Domains.Lembrete", b =>
@@ -116,9 +160,25 @@ namespace InteliHealth.Migrations
 
             modelBuilder.Entity("InteliHealth.Domains.Topico", b =>
                 {
+                    b.HasOne("InteliHealth.Domains.Usuario", "Usuario")
+                        .WithMany("Topicos")
+                        .HasForeignKey("IdUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("InteliHealth.Domains.Topico", b =>
+                {
                     b.Navigation("Lembretes");
 
                     b.Navigation("Respostas");
+                });
+
+            modelBuilder.Entity("InteliHealth.Domains.Usuario", b =>
+                {
+                    b.Navigation("Topicos");
                 });
 #pragma warning restore 612, 618
         }
