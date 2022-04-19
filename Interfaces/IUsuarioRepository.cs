@@ -5,7 +5,7 @@ namespace InteliHealth.Interfaces
 {
     public interface IUsuarioRepository
     {
-        Usuario Login(string email, int idGoogle);
+        Usuario Login(string email, string idGoogle);
         void Cadastrar(Usuario novoUsuario);
         void Atualizar(int id, Usuario usuarioAtualizado);
         void Deletar(int id);

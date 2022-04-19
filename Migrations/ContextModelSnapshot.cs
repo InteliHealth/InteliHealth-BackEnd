@@ -116,8 +116,8 @@ namespace InteliHealth.Migrations
                     b.Property<string>("Foto")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdGoogle")
-                        .HasColumnType("int");
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");

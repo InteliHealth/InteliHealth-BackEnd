@@ -1,6 +1,5 @@
 ﻿using InteliHealth.Domains;
 using InteliHealth.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InteliHealth.Controllers
@@ -21,6 +20,11 @@ namespace InteliHealth.Controllers
             try
             {
                 Usuario usuarioBuscado = _usuarioRepository.Login(login.Email, login.IdGoogle);
+
+                if (login.Email == "" || login.IdGoogle == "")
+                {
+                    return BadRequest("Erro ao fazer login tente novamente");
+                }
 
                 if (usuarioBuscado != null)
                 {

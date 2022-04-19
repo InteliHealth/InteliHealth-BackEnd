@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InteliHealth.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20220414183719_Banco Inicial")]
+    [Migration("20220419170833_Banco Inicial")]
     partial class BancoInicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -118,8 +118,8 @@ namespace InteliHealth.Migrations
                     b.Property<string>("Foto")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdGoogle")
-                        .HasColumnType("int");
+                    b.Property<string>("IdGoogle")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");

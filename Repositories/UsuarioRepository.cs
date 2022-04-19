@@ -55,7 +55,7 @@ namespace InteliHealth.Repositories
             return ctx.Usuario.ToList();
         }
 
-        public Usuario Login(string email, int idGoogle)
+        public Usuario Login(string email, string idGoogle)
         {
             return ctx.Usuario.FirstOrDefault(u => u.Email == email && u.IdGoogle == idGoogle);
         }
