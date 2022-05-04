@@ -90,24 +90,24 @@ namespace InteliHealth.Controllers
         }
 
         [HttpPost]
-        public IActionResult CadastrarTopico([FromForm] Topico topico, IFormFile file)
+        public IActionResult CadastrarTopico(/*[FromForm]*/ Topico topico/*, IFormFile file*/)
         {
             
             try
             {
-                string[] acceptedExtensions = { "png", "jpg", "jpeg", "svg", "gif" };
-                string uploadResult = Upload.UploadFile(file, acceptedExtensions);
+                //string[] acceptedExtensions = { "png", "jpg", "jpeg", "svg", "gif" };
+                //string uploadResult = Upload.UploadFile(file, acceptedExtensions);
 
-                if (uploadResult == "")
-                {
-                    return BadRequest("Arquivo não encontrado");
-                }
-                if (uploadResult == "Extensão não permitida")
-                {
-                    return BadRequest("Extensão de arquivo não permitida");
-                }
+                //if (uploadResult == "")
+                //{
+                //    return BadRequest("Arquivo não encontrado");
+                //}
+                //if (uploadResult == "Extensão não permitida")
+                //{
+                //    return BadRequest("Extensão de arquivo não permitida");
+                //}
 
-                topico.Icone = uploadResult;
+                //topico.Icone = uploadResult;
 
                 _topicoRepository.Cadastrar(topico);
 
