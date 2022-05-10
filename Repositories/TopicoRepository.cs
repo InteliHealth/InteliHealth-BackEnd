@@ -58,6 +58,7 @@ namespace InteliHealth.Repositories
                 return ctx.Topico.Where(u => u.IdUsuario == idUsuario)
                     .Select(t => new Topico()
                     {
+                        IdTopico = t.IdTopico,
                         Nome = t.Nome,
                         Icone = t.Icone
                     }).ToList();
