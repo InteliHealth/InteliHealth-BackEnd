@@ -61,6 +61,7 @@ namespace InteliHealth.Repositories
                         Titulo = l.Titulo,
                         Horario = l.Horario,
                         IdLembrete = l.IdLembrete,
+                        DataCriacao = l.DataCriacao,
                     }).ToList();
             }
 
