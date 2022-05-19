@@ -40,7 +40,9 @@ namespace InteliHealth.Repositories
                 return ctx.Resposta.Where(t => t.IdTopico == idTopico)
                     .Select(r => new Resposta()
                     {
-                        Realizado = r.Realizado
+                        Realizado = r.Realizado,
+                        DataCriacao = r.DataCriacao,
+                        IdResposta = r.IdResposta,
                     }).ToList();
             }
 
