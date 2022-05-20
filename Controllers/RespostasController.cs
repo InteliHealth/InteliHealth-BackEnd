@@ -123,5 +123,32 @@ namespace InteliHealth.Controllers
                 throw;
             }
         }
+        
+        [HttpGet("Meus/Realizados/{id}")]
+        public IActionResult ListarMeusRealizados(int id)
+        {
+            List<Resposta> respostas = _respostaRepository.ListarMeusRealizados(id);
+            try
+            {
+                if (respostas == null)
+                {
+                    return BadRequest(new
+                    {
+                        Erro = "Nenhuma resposta encontrada"
+                    });
+                }
+
+                return Ok(respostas);
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new
+                    {
+                        Erro = "Erro no banco de dados, contate o administrador!"
+                    });
+                throw;
+            }
+        }
     }
 }

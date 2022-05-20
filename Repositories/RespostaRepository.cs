@@ -48,5 +48,25 @@ namespace InteliHealth.Repositories
 
             return null;
         }
+
+        public List<Resposta> ListarMeusRealizados(int id)
+        {
+            Topico topicoBuscado = ctx.Topico.FirstOrDefault(t => t.IdTopico == id);
+            if (topicoBuscado != null)
+            {
+                int idTopico = topicoBuscado.IdTopico;
+
+                return ctx.Resposta.Where(t => t.IdTopico == idTopico && t.Realizado == true)
+                    .Select(r => new Resposta()
+                    {
+                        Realizado = r.Realizado,
+                        DataCriacao = r.DataCriacao,
+                        IdResposta = r.IdResposta,
+                    })
+                    .ToList();
+            }
+
+            return null;
+        }
     }
 }
