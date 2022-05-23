@@ -34,7 +34,7 @@ namespace InteliHealth
                 {
                     options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                    options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                    //options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
                 });
 
             services.AddCors(options =>

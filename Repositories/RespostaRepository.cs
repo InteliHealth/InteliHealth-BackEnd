@@ -43,6 +43,7 @@ namespace InteliHealth.Repositories
                         Realizado = r.Realizado,
                         DataCriacao = r.DataCriacao,
                         IdResposta = r.IdResposta,
+                        
                     }).ToList();
             }
 
