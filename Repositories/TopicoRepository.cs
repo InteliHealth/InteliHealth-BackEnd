@@ -38,7 +38,24 @@ namespace InteliHealth.Repositories
 
         public void Excluir(int id)
         {
-            ctx.Topico.Remove(BuscarPorId(id));
+            Topico topico = BuscarPorId(id);
+
+            foreach (var lembrete in ctx.Lembrete)
+            {
+                if (lembrete.IdTopico == topico.IdTopico)
+                {
+                    ctx.Lembrete.Remove(lembrete);
+                }
+            }
+            foreach (var resposta in ctx.Resposta)
+            {
+                if (resposta.IdTopico == topico.IdTopico)
+                {
+                    ctx.Resposta.Remove(resposta);
+                }
+            }
+
+            ctx.Topico.Remove(topico);
 
             ctx.SaveChanges();
         }
